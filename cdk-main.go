@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"cdk-go-lab/main_pipeline"
+	"cdk-go-lab/pipeline_main"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/jsii-runtime-go"
@@ -13,7 +13,7 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
-	main_pipeline.NewPipelineStack(app, "AppFullStack", &awscdk.StackProps{
+	pipeline_main.NewPipelineStack(app, "AppFullStack", &awscdk.StackProps{
 		Env: env(),
 	})
 

@@ -1,4 +1,4 @@
-package main_pipeline
+package pipeline_main
 
 import (
 	"cdk-go-lab/config"

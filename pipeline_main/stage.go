@@ -1,7 +1,7 @@
-package main_pipeline
+package pipeline_main
 
 import (
-	"cdk-go-lab/main_app"
+	"cdk-go-lab/app_main"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -20,7 +20,7 @@ func NewMyAppStage(scope constructs.Construct, id string, props *MainAppStagePro
 
 	stage := awscdk.NewStage(scope, &id, &sprops)
 
-	main_app.NewMyAppStack(stage, "MyAppStack", nil)
+	app_main.NewAppMainStack(stage, "MyAppStack", nil)
 
 	return stage
 }
