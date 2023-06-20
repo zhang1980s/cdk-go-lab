@@ -20,7 +20,7 @@ func NewMyAppStage(scope constructs.Construct, id string, props *MainAppStagePro
 
 	stage := awscdk.NewStage(scope, &id, &sprops)
 
-	app_main.NewAppMainStack(stage, "MyAppStack", nil)
+	app_main.NewAppMainStack(stage, "MyAppMainStack", nil)
 
 	return stage
 }
