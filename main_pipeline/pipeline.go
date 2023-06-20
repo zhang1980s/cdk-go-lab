@@ -1,4 +1,4 @@
-package cicdlib
+package main_pipeline
 
 import (
 	"cdk-go-lab/config"
