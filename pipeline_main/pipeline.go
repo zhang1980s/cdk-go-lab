@@ -13,7 +13,7 @@ func NewPipelineStack(scope constructs.Construct, id string, props *awscdk.Stack
 
 	stack := awscdk.NewStack(scope, &id, props)
 
-	pipelines.NewCodePipeline(stack, jsii.String(config.PipelineName), &pipelines.CodePipelineProps{
+	pipeline := pipelines.NewCodePipeline(stack, jsii.String(config.PipelineName), &pipelines.CodePipelineProps{
 		Synth: pipelines.NewCodeBuildStep(jsii.String("SynthStep"), &pipelines.CodeBuildStepProps{
 			Input: pipelines.CodePipelineSource_Connection(jsii.String(config.RepoName), jsii.String(config.RepoBranch), &pipelines.ConnectionSourceOptions{
 				ConnectionArn:        jsii.String(config.ConnectionArn),
@@ -26,9 +26,9 @@ func NewPipelineStack(scope constructs.Construct, id string, props *awscdk.Stack
 		}),
 	})
 
-	///	deploy := NewSinglePipelineStage(stack, "DeployStage", nil)
+	deploy := NewPipelineMainStage(stack, "DeployStage", nil)
 
-	///	pipeline.AddStage(deploy, nil)
+	pipeline.AddStage(deploy, nil)
 
 	return stack
 }

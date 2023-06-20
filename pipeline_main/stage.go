@@ -7,11 +7,11 @@ import (
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
-type MainAppStageProps struct {
+type PipelineMainStageProps struct {
 	awscdk.StageProps
 }
 
-func NewMyAppStage(scope constructs.Construct, id string, props *MainAppStageProps) awscdk.Stage {
+func NewPipelineMainStage(scope constructs.Construct, id string, props *PipelineMainStageProps) awscdk.Stage {
 	var sprops awscdk.StageProps
 
 	if props != nil {
