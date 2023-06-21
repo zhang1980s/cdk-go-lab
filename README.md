@@ -7,7 +7,11 @@ CDK语言： GO 1.18.3
 CICD流水线： AWS Code Pipeline
 ###
 参考文档：
+---
+AWS 官方演示代码
 https://github.com/aws-samples/aws-cdk-deploy-pipeline-using-aws-codepipeline
+
+AWS SA开源代码
 https://github.com/cowcoa/aws-cdk-go-examples
 ### 试验
 ---
