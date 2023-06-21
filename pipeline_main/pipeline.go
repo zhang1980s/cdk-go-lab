@@ -16,7 +16,7 @@ func NewPipelineStack(scope constructs.Construct, id string, props *awscdk.Stack
 	pipeline := pipelines.NewCodePipeline(stack, jsii.String(config.PipelineName), &pipelines.CodePipelineProps{
 		Synth: pipelines.NewCodeBuildStep(jsii.String("SynthStep"), &pipelines.CodeBuildStepProps{
 			Input: pipelines.CodePipelineSource_Connection(jsii.String(config.RepoName), jsii.String(config.RepoBranch), &pipelines.ConnectionSourceOptions{
-				ConnectionArn:        jsii.String(config.ConnectionArn),
+				ConnectionArn:        jsii.String(config.MainConnectionArn),
 				CodeBuildCloneOutput: jsii.Bool(true),
 				TriggerOnPush:        jsii.Bool(true)}),
 			Commands: jsii.Strings(
