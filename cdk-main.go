@@ -13,7 +13,7 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
-	pipeline_main.NewPipelineStack(app, "AppFullStack", &awscdk.StackProps{
+	pipeline_main.NewPipelineStack(app, "PipelineStack", &awscdk.StackProps{
 		Env: env(),
 	})
 
