@@ -27,10 +27,6 @@ func NewPipelineStack(scope constructs.Construct, id string, props *awscdk.Stack
 		}),
 	})
 
-	manualApprovalStage := NewManualApprovalStage(stack, "ManualApprovalStage", nil)
-
-	pipeline.AddStage(manualApprovalStage, nil)
-
 	deploy := NewPipelineMainStage(stack, "DeployStage", nil)
 
 	pipeline.AddStage(deploy, nil)
