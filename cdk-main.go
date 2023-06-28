@@ -13,6 +13,10 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
+	pipeline_main.NewSNSNoticeStack(app, "SNSNoticeStack", &awscdk.StackProps{
+		Env: env(),
+	})
+
 	pipeline_main.NewPipelineStack(app, "PipelineStack", &awscdk.StackProps{
 		Env: env(),
 	})
