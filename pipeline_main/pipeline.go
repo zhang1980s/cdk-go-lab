@@ -18,7 +18,8 @@ func NewPipelineStack(scope constructs.Construct, id string, props *awscdk.Stack
 			Input: pipelines.CodePipelineSource_Connection(jsii.String(config.RepoName), jsii.String(config.RepoBranch), &pipelines.ConnectionSourceOptions{
 				ConnectionArn:        jsii.String(config.ConnectionArn),
 				CodeBuildCloneOutput: jsii.Bool(true),
-				TriggerOnPush:        jsii.Bool(true)}),
+				TriggerOnPush:        jsii.Bool(true),
+			}),
 			Commands: jsii.Strings(
 				"npx npm install -g aws-cdk",
 				"goenv install 1.18.3",

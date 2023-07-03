@@ -11,6 +11,10 @@ type PipelineMainStageProps struct {
 	awscdk.StageProps
 }
 
+type PipelineManualApprovalStageProps struct {
+	awscdk.StageProps
+}
+
 func NewPipelineMainStage(scope constructs.Construct, id string, props *PipelineMainStageProps) awscdk.Stage {
 	var sprops awscdk.StageProps
 
