@@ -23,7 +23,7 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 		DisplayName: jsii.String("MyTopic"),
 	})
 
-	awslambda.NewFunction(stack, jsii.String("MyLambda"), &awslambda.FunctionProps{
+	fn := awslambda.NewFunction(stack, jsii.String("MyLambda"), &awslambda.FunctionProps{
 		Runtime:    awslambda.Runtime_GO_1_X(),
 		Handler:    jsii.String("lambda"),
 		MemorySize: jsii.Number(128),
@@ -34,6 +34,8 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 			RetryAttempts: jsii.Number(1),
 		},
 	})
+
+	fn.AddAlias(jsii.String("Prod"), nil)
 
 	return stack
 }
