@@ -36,7 +36,9 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 	})
 
 	version := awslambda.NewVersion(stack, jsii.String("MyLambdaVersion"), &awslambda.VersionProps{
-		Lambda: fn,
+		Lambda:        fn,
+		RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+		RetryAttempts: jsii.Number(2),
 	})
 
 	versionWeight := &awslambda.VersionWeight{
