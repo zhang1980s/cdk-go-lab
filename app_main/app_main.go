@@ -35,11 +35,13 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 		},
 	})
 
-	var version awslambda.Version
+	version := awslambda.NewVersion(stack, jsii.String("MyLambdaVersion"), &awslambda.VersionProps{
+		Lambda: fn,
+	})
 
 	versionWeight := &awslambda.VersionWeight{
 		Version: version,
-		Weight:  jsii.Number(10),
+		Weight:  jsii.Number(1),
 	}
 
 	fn.AddAlias(jsii.String("Prod"), &awslambda.AliasOptions{
