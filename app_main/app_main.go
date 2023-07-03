@@ -2,6 +2,7 @@ package app_main
 
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
@@ -20,6 +21,14 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 
 	awssns.NewTopic(stack, jsii.String("MyTopic"), &awssns.TopicProps{
 		DisplayName: jsii.String("MyTopic"),
+	})
+
+	awslambda.NewFunction(stack, jsii.String("MyLambda"), &awslambda.FunctionProps{
+		Runtime:    awslambda.Runtime_GO_1_X(),
+		Handler:    jsii.String("lambda"),
+		MemorySize: jsii.Number(128),
+		Timeout:    awscdk.Duration_Seconds(jsii.Number(10)),
+		Code:       awslambda.Code_FromAsset(jsii.String("app_main/lambda"), nil),
 	})
 
 	return stack
