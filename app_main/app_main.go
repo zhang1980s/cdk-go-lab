@@ -29,10 +29,10 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 		MemorySize: jsii.Number(128),
 		Timeout:    awscdk.Duration_Seconds(jsii.Number(10)),
 		Code:       awslambda.Code_FromAsset(jsii.String("app_main/lambda"), nil),
-		CurrentVersionOptions: &awslambda.VersionOptions{
-			RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
-			RetryAttempts: jsii.Number(1),
-		},
+		///		CurrentVersionOptions: &awslambda.VersionOptions{
+		///			RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+		///			RetryAttempts: jsii.Number(1),
+		///		},
 	})
 
 	version := awslambda.NewVersion(stack, jsii.String("MyLambdaVersion"), &awslambda.VersionProps{
@@ -41,7 +41,7 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 
 	versionWeight := &awslambda.VersionWeight{
 		Version: version,
-		Weight:  jsii.Number(1),
+		Weight:  jsii.Number(0.1),
 	}
 
 	fn.AddAlias(jsii.String("Prod"), &awslambda.AliasOptions{
