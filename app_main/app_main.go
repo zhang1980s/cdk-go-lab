@@ -29,6 +29,10 @@ func NewAppMainStack(scope constructs.Construct, id string, props *AppMainStackP
 		MemorySize: jsii.Number(128),
 		Timeout:    awscdk.Duration_Seconds(jsii.Number(10)),
 		Code:       awslambda.Code_FromAsset(jsii.String("app_main/lambda"), nil),
+		CurrentVersionOptions: &awslambda.VersionOptions{
+			RemovalPolicy: awscdk.RemovalPolicy_DESTROY,
+			RetryAttempts: jsii.Number(1),
+		},
 	})
 
 	return stack
