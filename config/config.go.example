@@ -1,0 +1,9 @@
+package config
+
+const (
+	RepoName            = "zhang1980s/cdk-go-lab"
+	RepoBranch          = "main"
+	ConnectionArn       = "arn:aws:codestar-connections:us-east-1:123456789012:connection/ffffffff-ffff-ffff-ffff-ffffffffffff"
+	PipelineName        = "StackPipeline"
+	ManualApprovalEmail = "user@example.com"
+)
